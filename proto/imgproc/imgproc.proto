@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package imgproc;
+
+option go_package = "imgproc.v1";
+
+service ImageProcessingService {
+    rpc ProcessImage(ProcessImageRequest) returns (ProcessImageResponse);
+}
+
+message ProcessImageRequest {
+    string path = 1;
+    int32 x = 2;
+    int32 y = 3;
+    int32 w = 4;
+    int32 h = 5;
+}
+
+message ProcessImageResponse {
+    string small = 1;
+    string medium = 2;
+    string large = 3;
+}
